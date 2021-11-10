@@ -1,5 +1,5 @@
 {
-  description = "";
+  description = "Helper utilities for overriding Haskell packages in Nixpkgs";
 
   inputs = { };
 
