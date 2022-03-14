@@ -36,21 +36,21 @@
                 };
 
                 extensions = [
-                  (haskell-overlay.sources {
+                  (haskell-overlay.sources (haskellPackagesFinal: haskellPackagesPrev: {
                     # Add your project to the Haskell package set
                     "your-project" = ./.;
 
                     # Use a newer version of a library from Hackage
                     "some-library" = "2.0.0.0";
-                  })
+                  }))
 
-                  (haskell-overlay.overrideAttrs {
+                  (haskell-overlay.overrideAttrs (haskellPackagesFinal: haskellPackagesPrev: {
                     # Override attributes
                     "another-library" = prev: {
                       broken = false;
                       doCheck = false;
                     };
-                  })
+                  }))
                   # Check out the code for `sources`, `override`,
                   # `overrideCabal`, and `overrideAttrs` for more information.
                 ];
