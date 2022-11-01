@@ -5,6 +5,7 @@
 
   outputs = { self, ... }: {
     lib = import ./default.nix;
-    overlay = final: prev: { haskell-overlay = import ./default.nix; };
+    overlays.default = final: prev: { haskell-overlay = self.lib; };
+    overlay = self.overlays.default;
   };
 }
